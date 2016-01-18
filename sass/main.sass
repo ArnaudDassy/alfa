@@ -1,0 +1,824 @@
+/* Font
+@font-face
+  font-family: "Futura Book"
+  src: url('./font/Futura LT Folder/Futura LT Book.otf') format('opentype')
+@font-face
+  font-family: "Futura Bold"
+  src: url('./font/Futura LT Folder/Futura LT Bold.otf') format('opentype')
+@font-face
+  font-family: "Futura Light"
+  src: url('./font/Futura LT Folder/Futura LT Light.otf') format('opentype')
+@font-face
+  font-family: "Futura Medium"
+  src: url('./font/Futura LT Folder/Futura LT Medium.otf') format('opentype')
+
+//Animation
+@keyframes increase
+  from
+    width: 0%
+  to
+    width: 100%
+@keyframes discrease
+  from
+    width: 100%
+  to
+    width: 0%
+// Var
+$default: 0 0 5px rgba(0,0,0,0.6)
+$purple: #2a1e8a
+$mainColor: #0382d2
+
+/* Tools
+.toHide
+  display: none
+
+/* Base
+body
+  font-family: 'Futura Book'
+  font-size: 1.3rem
+  line-height: 1.34
+  background-color: white
+.header
+  text-align: center
+  margin-bottom: 12px
+  font-size: 1.5em
+  border-top: 1px solid $mainColor
+  border-bottom: 1px solid $mainColor
+  padding: 6px 0
+.small_banner
+  padding: 24px
+  background-color: $mainColor
+  color: white
+  margin-top: 50px
+  position: relative
+  display: flex
+
+.small_banner__left
+  width: 20%
+  min-width: 200px
+  text-align: center
+  p
+    font-size: 4rem
+
+.small_banner__right
+  width: 75%
+  flex: 1
+  text-align: right
+  font-size: 2rem
+  align-self: center
+
+/* Menu
+.menuServices
+  position: fixed
+  z-index: 150000
+  top: 0
+  width: 100%
+  border-bottom: 2px solid $mainColor
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4)
+  background-color: white
+  &>ul
+    display: flex
+  &>ul>li
+    display: inline-block
+    width: 18.937642%
+    float: left
+    position: relative
+    z-index: 103
+    &::after
+      content: url('./img/triangle.png')
+      position: absolute
+      bottom: -7px
+      left: 50%
+    &:first-child::after, &.menu__search::after
+      content: ''
+    a
+      color: $mainColor
+      text-decoration: none
+      display: block
+      width: 100%
+      padding: 12px 0
+      text-align: center
+      background-color: white
+      -webkit-transition: 0.3s all background-color
+      transition: 0.3s all background-color
+      -webkit-transition: 0.3s all color
+      transition: 0.3s all color
+      &:hover
+        background-color: $mainColor
+        color: white
+    form
+      width: 100%
+      padding: 11px 0
+      text-align: center
+
+      label
+        display: none
+      input[type='text']
+        width: 70%
+        border: 1px solid grey
+        padding: 2px
+        margin: 0
+      input[type='submit']
+        width: 24px
+        right: 24px
+        top: 17px
+        text-indent: -5000px
+        display: inline-block
+        background-color: white
+        border: none
+        cursor: pointer
+        background-image: url('./img/search.png')
+        background-size: 80%
+        background-repeat: no-repeat
+        background-position: 0 0
+        height: 2em
+
+/* Logo + Search bar
+.menuServices>ul>li:first-child
+  width: 74px
+  display: flex
+  a
+    padding: 0
+    display: flex
+    align-items: center
+    justify-content: space-around
+    &:hover
+      background-color: transparent
+    img
+      width: 50px
+.menuServices>ul>li.menu__search
+  flex: 1
+/* Drop Down
+
+  /* Level 1
+
+.menuServices>ul>li>ul
+  display: none
+  width: 100%
+  border: none
+  position: absolute
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.4)
+  z-index: 102
+  li
+    position: relative
+    a
+      width: 95%
+      padding-left: 5%
+      text-align: left
+
+.menuServices>ul>li:hover>ul
+  display: block
+
+  /* Level 2
+
+.menuServices>ul>li>ul>li>ul
+  display: none
+  width: 100%
+  border: none
+  position: absolute
+  left: 100%
+  top: 10%
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.4)
+  z-index: 101
+  li
+    a
+      width: 100%
+      text-align: left
+      text-indent: 12px
+
+.menuServices>ul>li>ul>li:hover>ul
+  display: block
+
+
+/* banniere
+.banniere
+  margin-top: 50px
+  position: relative
+  &>
+    img
+      width: 100%
+      box-shadow: 0 0 5px 5px rgba(0,0,0,0.5)
+    div
+      position: absolute
+      left: 48px
+      top: 56px
+      text-align: center
+      font-size: 3rem
+      color: white
+      width: 30vw
+      background-color: $mainColor
+      padding: 24px
+      box-shadow: 0 0 20px 20px $mainColor
+      img
+        width: 6.67vw
+      p
+        text-align: justify
+        font-weight: bold
+        font-size: 2vw
+/* Main Menu
+.containMenu
+  display: none
+  width: 240px
+  float: left
+  padding-bottom: 500px
+  margin-top: 24px
+  margin-left: 24px
+.mainMenu
+  background-color: white
+  border: 2px solid $purple
+  li
+    color: $purple
+    display: inline-block
+    width: 240-16px
+    padding: 6px 0
+    padding-left: 12px
+    margin: 6px 0
+    text-align: left
+    cursor: pointer
+    transition: 0.3s ease all
+    &:hover
+      background-color: $purple
+      color: white
+section
+  text-align: center
+  margin: 48px 0
+  padding: 0 24px
+  &>ul
+    padding: 0 36px
+  border-bottom: 2px solid $mainColor
+  p
+    font-size: 1.3rem
+h2
+  font: 5rem 'Futura Light'
+  color: $mainColor
+
+.quiSommesNous
+  border-bottom: none
+  p
+    width: 60%
+    margin: 0 auto
+    text-align: center
+    font-size: 1.3rem
+
+.call
+  width: 100%
+  background-color: $mainColor
+  margin-top: 0
+  padding: 48px 24px
+  box-sizing: border-box
+  svg
+    width: 100px
+    height: 100px
+  path
+    fill: white
+  .bold
+    font-family: 'Futura Bold'
+    color: white
+  p
+    font-size: 2rem
+
+.services
+  .header
+    color: $mainColor
+  .window
+    text-align: left
+    width: 49%
+    display: inline-block
+    margin: 24px 0
+    .svg
+      float: left
+      font-size: 8rem
+      height: 125px
+      width: 125px
+      padding-left: 24px
+      position: relative
+      color: $mainColor
+    .svg::before
+      font-family: "Pe-icon-7-stroke"
+      position: absolute
+      left: 0
+      top: -20px
+    .svg__service-prevention::before
+      content: '\e647'
+    .ico__prevention::before
+      content: '\e647'
+    .svg__service-therapeutique::before
+      content: '\e6ad'
+    .svg__service-parentalite::before
+      content: '\e693'
+    .svg__service-reduction-des-risques::before
+      content: '\e67b'
+    path
+      fill: $mainColor
+    a
+      text-decoration: none
+      color: black
+      display: inline-block
+      width: 80%
+      padding: 9%
+      border: 2px solid white
+      transition: 0.3s all linear
+      &:hover
+        border: 2px solid $mainColor
+
+.news
+  border-bottom: none
+  .header
+    color: $mainColor
+  .item
+    width: 50%
+    margin: 0 auto
+    text-align: left
+  .owl-nav
+    width: 30%
+    margin: 24px auto
+  .owl-prev
+    width: 50%
+    float: left
+    position: relative
+    text-align: left
+    color: $mainColor
+  .owl-prev::before
+    font-family: "Pe-icon-7-stroke"
+    font-size: 3rem
+    content: '\e686'
+    position: absolute
+    left: -3rem
+    top: -1.2rem
+  .owl-next
+    width: 50%
+    float: right
+    position: relative
+    text-align: right
+    color: $mainColor
+  .owl-next::after
+    font-family: "Pe-icon-7-stroke"
+    font-size: 3rem
+    content: '\e684'
+    position: absolute
+    right: -3rem
+    top: -1.2rem
+  .owl-prev, .owl-next
+    text-decoration: underline
+    text-decoration-color: white
+    transition: 0.3s all linear
+  .owl-prev:hover, .owl-next:hover
+    text-decoration-color: $mainColor
+  .owl-dot
+    background-color: grey
+    opacity: 0.5
+    display: inline-block
+    width: 15px
+    height: 15px
+    border-radius: 7.5px
+    margin: 0 12px
+    transition: 0.3s all linear
+    &:hover
+      background-color: $mainColor
+      opacity: .8
+  .owl-dots .active
+    background-color: $mainColor
+    opacity: 1
+
+.footer
+  font-size: 1.5rem
+  text-align: center
+  color: white
+  border-bottom: none
+  background-color: $mainColor
+  margin: 0
+  display: flex
+  justify-content: space-between
+  width: 100%
+  box-sizing: border-box
+  padding: 24px
+  li, p
+    margin: 6px
+  a
+    padding: 6px
+    color: white
+    background-color: $mainColor
+    transition: 0.3s all linear
+    text-decoration: none
+    display: inline-block
+    &:hover
+      color: $mainColor
+      background-color: white
+  .header
+    font-size: 1.5em
+    border: none
+    text-align: left
+    width: 100%
+    padding-left: 0
+    font-family: 'Futura Bold'
+  div
+    vertical-align: top
+    text-align: left
+    width: 30%
+  ul, p
+    width: 98%
+    padding-left: 2%
+
+.contactSM
+  p
+    font-size: 1.5rem
+
+
+.ico__adress::before
+  content: '\e648'
+.ico__tel::before
+  content: '\e670'
+.ico__fax::before
+  content: '\e61f'
+.ico__prevention::before
+  content: '\e647'
+.ico__therapeutique::before
+  content: '\e6ad'
+.ico__parentalite::before
+  content: '\e693'
+.ico__rdr::before
+  content: '\e67b'
+.ico__social::before
+  content: '\e668'
+.ico__administration::before
+  content: '\e69d'
+.ico__direction::before
+  content: '\e605'
+.ico
+  position: relative
+.contactSM .ico::before
+  font-family: "Pe-icon-7-stroke"
+  position: absolute
+  font-size: 2rem
+  left: -2rem
+  top: -0.33rem
+
+
+/* Article
+.arborescence
+  color: $mainColor
+  text-align: left
+  a
+    color: $mainColor
+    &:hover
+      text-decoration: none
+  p,ul
+    display: inline-block
+    &:after
+      content: '>>'
+      padding: 0 6px
+    &:last-child:after
+      content: ''
+    li
+      display: inline-block
+
+article
+  width: 100%
+  box-sizing: border-box
+  padding: 24px
+  .contentArticle
+    margin: 24px 0
+    a
+      color: $mainColor
+      &:hover
+        text-decoration: none
+.category
+  &>ul,p
+    text-align: left
+    margin: 24px 0
+    &>li
+      font-size: 1.5em
+      color: $mainColor
+      list-style-type: circle
+      margin: 24px 0
+      ul
+        padding-left: 24px
+        font-size: 1.5rem
+        li
+          color: $mainColor
+          list-style-type: disc
+          margin: 6px 0
+      a
+        color: $mainColor
+        &:hover
+          text-decoration: none
+  &>p
+    margin-top: 0
+.question, .lien
+  border: 2px solid $mainColor
+  margin: 24px auto
+  p
+    font-size: 1.5em
+    text-align: left
+    padding-left: 12px
+    margin: 12px 0
+  .question__title, .lien__title
+    color: $mainColor
+    font-family: 'Futura Bold'
+  .question__title
+    border-bottom-style: dashed
+    border-bottom: 3px $mainColor
+.lien__description
+  color: white
+  background-color: $mainColor
+  padding: 12px
+  p
+    padding: 0
+    width: 100%
+.lien__title a
+  text-decoration: none
+  color: $mainColor
+  &:hover
+    text-decoration: underline
+.lien__link a
+  color: $mainColor
+  &:hover
+    text-decoration: none
+
+
+h3
+  font-size: 4rem
+  font-family: 'Futura Bold'
+  color: $mainColor
+h4
+  font-size: 3rem
+  font-family: 'Futura Book'
+  text-decoration: underline
+  color: $mainColor
+h5
+  font-size: 2rem
+.people
+  width: 235px
+  height: 425px
+  display: inline-block
+  text-align: left
+  padding: 6px
+  margin: 12px
+  border: 2px solid $mainColor
+  vertical-align: top
+  span
+    display: block
+  p
+    margin-bottom: 12px
+.people__container
+  border: 4px solid $mainColor
+  margin: 24px 0
+  padding: 24px
+  font-size: 0
+.people__photo
+  float: left
+  width: 100%
+  img
+    width: 100%
+.people__header
+  color: $mainColor
+
+
+.selfhelp
+  border: 2px solid $mainColor
+  margin: 24px auto
+  p
+    font-size: 1.5em
+    text-align: left
+    padding: 12px 0
+    padding-left: 12px
+  .selfhelp__title
+    color: white
+    font-family: 'Futura Bold'
+    background-color: $mainColor
+  .selfhelp__header
+    font-family: 'Futura Bold'
+    color: $mainColor
+    margin-top: 24px
+    margin-bottom: 0
+    padding-top: 0
+    padding-bottom: 0
+
+.contact
+  text-align: left
+.contact__title
+  font-size: 3rem
+  color: $mainColor
+  margin-bottom: 24px
+.contact__image
+  float: left
+  img
+    width: 480px
+    display: block
+    margin-bottom: 24px
+  iframe
+    width: 480px
+    height: 360px
+.contact__info
+  margin-left: 504px
+  p
+    margin-bottom: 12px
+    span
+      color: $mainColor
+      text-decoration: underline
+.contact__mail
+  margin-bottom: 12px
+p.contact__header
+  color: $mainColor
+  text-decoration: underline
+  margin-bottom: 6px
+
+.search
+  text-align: left
+  h2
+    text-align: center
+  li
+    margin: 6px 0
+  a
+    color: $mainColor
+    text-decoration: none
+    background-color: white
+    transition: 0.3s all linear
+    padding: 6px
+    display: inline-block
+    &:hover
+      background-color: $mainColor
+      color: white
+.search__results div
+  div
+    border-bottom: 2px solid $mainColor
+    padding: 24px
+.search__selectors
+  text-align: left
+  border: 2px solid $mainColor
+  border-radius: 24px
+  display: inline-block
+  padding: 12px
+  margin: 24px 0
+.search__selectors__button
+  display: inline-block
+  margin: 0 24px
+  position: relative
+.search__selectors__infos
+  text-align: center
+  margin-bottom: 12px
+  color: $mainColor
+  font-family: 'Futura Bold'
+.search__selectors_button_label
+  color: black
+  transition: 0.3s all linear
+  cursor: pointer
+  &:hover
+    color: $mainColor
+.search__selectors_button_underline
+  border-bottom: 2px solid $mainColor
+  bottom: 0
+  left: 0
+  margin-top: 1px
+  position: absolute
+  animation: increase 0.2s forwards
+
+.tarif
+  margin: 24px 0
+  margin-bottom: 36px
+  text-align: left
+.tarif__title
+  font-size: 2rem
+  color: $mainColor
+.tarif__note
+  font-style: italic
+  margin: 12px 0
+.tarif li
+  list-style-type: disc
+  margin-left: 24px
+.tarif__description+p
+  padding: 12px
+  border: 2px solid $mainColor
+  margin: 12px 0
+  display: inline-block
+.tarif__content
+  padding-left: 12px
+
+.job, .partenariat
+  border: 2px solid $mainColor
+  padding: 12px
+  text-align: left
+  margin-top: 24px
+.job__title, .partenariat__title, .partenariat__contact__header
+  font-size: 2rem
+  color: $mainColor
+  margin-bottom: 12px
+.job__note
+  font-style: italic
+  margin: 12px 0
+.job li
+  list-style-type: disc
+  margin-left: 24px
+.job__description
+  margin-bottom: 12px
+  display: inline-block
+.job__content
+  padding-left: 12px
+.partenariat__content
+  display: flex
+.partenariat
+  img
+    width: 200px
+    float: left
+    margin-right: 24px
+    margin-bottom: 12px
+.partenariat__description
+  vertical-align: top
+.partenariat__contact__header
+  clear: both
+  margin-top: 12px
+  margin-bottom: 6px
+
+.map
+  text-align: left
+  border-bottom: none
+  a
+    color: $mainColor
+    text-decoration: none
+    display: inline-block
+    padding: 6px 3px
+    margin: 6px 0
+    text-align: left
+    background-color: white
+    transition: color, background-color 0.3s linear
+    &:hover
+      background-color: $mainColor
+      color: white
+  li
+    list-style-type: none
+  &>div
+    padding-left: 24px
+    &>li
+      padding-left: 24px
+      &>ul
+        padding-left: 24px
+        li>ul
+          padding-left: 24px
+    &+div
+      li
+        padding-left: 24px
+.menuServices .mq__menu
+  display: none
+@media screen and (max-width: 1385px)
+  .menuServices ul li a
+    font-size: 18px
+@media screen and (max-width: 1210px)
+  .menuServices ul li a
+    font-size: 16px
+  html
+    font-size: 14px
+  .map li
+    font-size: 22px
+  .people
+    height: 335px
+@media screen and (max-width: 1067px)
+  .menuServices>ul>li
+    display: none
+  .menuServices ul li:first-child
+    display: flex
+  .menuServices ul li.menu__search
+    display: flex
+  html
+    font-size: 12px
+  .menuServices .mq__menu
+    display: flex
+    width: 250px
+    margin: 0 24px
+    position: relative
+    &:hover ul
+      position: absolute
+      top: 40px
+      left: 0
+      display: block
+  .news .item
+    width: 70%
+@media screen and (max-width: 800px)
+  .services .window a
+    p:last-child
+      display: none
+    .svg::before, .svg
+      height: 30vw
+      width: 30vw
+      font-size: 30vw
+      text-align: center
+      padding-left: 24px
+    .svg
+      width: 100%
+      padding: 0
+@media screen and (max-width: 725px)
+  .banniere>*
+    display: none
+  .quiSommesNous p
+    width: 80%
+@media screen and (max-width: 575px)
+  html
+    font-size: 10px
+  .menuServices .mq__menu
+    display: flex
+    width: 150px
+  .map li
+    font-size: 16px
+  body, .menuServices
+    min-width: 450px
+  .people p
+    font-size: 16px
